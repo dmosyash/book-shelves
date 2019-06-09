@@ -1,7 +1,7 @@
 # Book-Shelves
 This is a web application for managing your library.
 
-[Click here to see the live App](https://movies-n-chill.netlify.com/)
+[Click here to see the live App](https://book-shelves.netlify.com/)
 
 This application is developed in Reactjs.
 
