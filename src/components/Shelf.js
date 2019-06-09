@@ -11,10 +11,17 @@ const renderBooks = (data, shelfIndex, shiftBook) => {
     return data.books.map((book, i) => <Book key={i} shelfIndex={shelfIndex} shiftBook={shiftBook} bookDetails={book} index={i}/>)
 }
 
+const rowTitleStyle = {
+    width: "100%",
+    textAlign: "left",
+    lineHeight: "40px",
+}
+
 const Shelf = ({ shiftBook, shelfDetails, index }) => (
     <Row>
-        <h3 style={{display:"block"}}>{shelfDetails.name}</h3>
-        { renderBooks(shelfDetails, index, shiftBook) }
+        <h3 style={rowTitleStyle}>{shelfDetails.name}</h3>
+        <span style={{marginLeft: "40px"}}></span>
+        {renderBooks(shelfDetails, index, shiftBook)}
     </Row>
 );
 

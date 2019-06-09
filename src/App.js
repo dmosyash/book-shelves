@@ -7,22 +7,24 @@ import Search from './containers/Search';
 
 import './App.css';
 
+/**
+ * @name App
+ * @description The main component of the app.
+ * It contains two parts Header and the Route part
+ */
+
 class App extends Component {
-
-  goToSearch = id => this.props.history.push('/search');
-
-  goHome = () => this.props.history.push('/');
 
   render() {
       const styleContainer = {
         padding: '50px 80px',
         backgroundColor: '#dfdfdf',
-        minHeight: '80vh'
+        minHeight: '90vh'
       }
     
     return (
       <div className="App">
-        <Header goToSearch={this.goToSearch} goHome={this.goHome} />
+        <Header />
         <div style={styleContainer}>
           <Switch>
             <Route exact path="/" component={MyLibrary} />

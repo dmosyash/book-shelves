@@ -4,6 +4,11 @@ import Row from 'react-bootstrap/lib/Row';
 import Book from '../components/Book';
 import { getWholeData, shiftBook } from '../services/dataService';
 
+/**
+ * @class Search
+ * @description Search is a Container which get all the books related to the Search Text.
+ * It compares the book title with the search text.
+ */
 
 class Search extends Component {
     constructor(props) {
@@ -50,12 +55,6 @@ class Search extends Component {
         }, 300);
     }
 
-    shiftBookToLibrary = (book, bookIndex, currentShelfIndex, newShelfIndex) => {
-        shiftBook(book, bookIndex, currentShelfIndex, newShelfIndex);
-        this.setState({
-        });
-    }
-
     showResult = list => {
         let result = list.map((book, i) => <Book key={i} shelfIndex={book.shelfIndex} shiftBook={shiftBook} bookDetails={book} index={book.bookIndex} />);
         this.setState({ result });
@@ -64,7 +63,12 @@ class Search extends Component {
     render() {
         return (
             <div>
-                <input type="text" value={this.state.searchText} onChange={this.handleChange} />
+                <h1>Search Books</h1>
+                <input type="text"
+                    placeholder="Search..."
+                    value={this.state.searchText}
+                    onChange={this.handleChange}
+                />
                 <Grid>
                     <Row>
                         {this.state.result}

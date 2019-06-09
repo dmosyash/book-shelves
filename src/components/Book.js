@@ -9,8 +9,7 @@ import ShelfDropdown from './ShelfDropdown';
 
 const style = {
     height: '250px',
-    textAlign: 'center',
-    cursor: 'pointer'
+    textAlign: 'center'
 }
 
 const Book = ({ shiftBook, shelfIndex, bookDetails, index }) => {
@@ -21,8 +20,11 @@ const Book = ({ shiftBook, shelfIndex, bookDetails, index }) => {
                 alt={bookDetails.title}
                 thumbnail
             />
-            <h6>{bookDetails.title}</h6>
-            <ShelfDropdown shelfIndex={shelfIndex} onChangeShelf={(newShelfIndex) => shiftBook(bookDetails, index, shelfIndex, newShelfIndex) } />
+            <h6 style={{height: "40px"}}>{bookDetails.title}</h6>
+            <ShelfDropdown 
+                shelfIndex={shelfIndex}
+                onChangeShelf={(newShelfIndex) => shiftBook(bookDetails, index, shelfIndex, newShelfIndex)}
+            />
         </Col>
     );
 }

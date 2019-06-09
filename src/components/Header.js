@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 /**
  * @name Header
  * @description as name suggest it is Header of the whole App
- * It has two parts App's Logo and Search box for movies.
+ * It has the nav part of the App.
  */
 
 const headerStyle = {
