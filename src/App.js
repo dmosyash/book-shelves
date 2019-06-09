@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { Route, Switch, withRouter } from 'react-router-dom';
+
+import Header from './components/Header';
+import MyLibrary from './containers/MyLibrary';
+import Search from './containers/Search';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  goToSearch = id => this.props.history.push('/search');
+
+  goHome = () => this.props.history.push('/');
+
+  render() {
+      const styleContainer = {
+        padding: '50px 80px',
+        backgroundColor: '#dfdfdf',
+        minHeight: '80vh'
+      }
+    
+    return (
+      <div className="App">
+        <Header goToSearch={this.goToSearch} goHome={this.goHome} />
+        <div style={styleContainer}>
+          <Switch>
+            <Route exact path="/" component={MyLibrary} />
+            <Route path="/search" component={Search} />
+          </Switch>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default withRouter(App);
